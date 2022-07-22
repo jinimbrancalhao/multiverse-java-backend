@@ -47,4 +47,14 @@ public class MessageController {
 
         return existingMessage;
     }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.PATCH)
+    public Message patchMessage(@PathVariable Long id, @RequestBody Message message) {
+        Message existingMessage = messageRepository.findById(id).orElseThrow(() -> new IllegalStateException("Message does not exist"));
+        BeanUtils.copyProperties(message, existingMessage, "messageId");
+        messageRepository.save(existingMessage);
+
+        return existingMessage;
+
+    }
 }
