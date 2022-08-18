@@ -16,6 +16,8 @@ public class User {
     private Long userId;
     private String username;
     private String password;
+    private boolean active;
+    private String roles;
 
     public Long getUserId() {
         return userId;
@@ -39,5 +41,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 }
